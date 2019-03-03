@@ -19,9 +19,9 @@ def trainNet(net, data_dir, sample_dir, cpt_dir, epochs=100, gpu=True, train=Tru
     optimizer = torch.optim.Adam(net.parameters(), lr=0.001)
 
     if train:
-        train_dataset = dataset.InpaintingDataSet(os.path.join(data_dir, 'train.png'), 1600)
+        train_dataset = dataset.InpaintingDataSet(os.path.join(data_dir, 'train.png'), 800)
         train_data_loader = torch.utils.data.DataLoader(train_dataset,
-                                                        batch_size=16,
+                                                        batch_size=8,
                                                         shuffle=True,
                                                         num_workers=0)
         print('train items:', len(train_dataset))
@@ -100,7 +100,7 @@ def getArgs():
     parser.add_option('--data-dir', dest='data_dir', default='./inpainting_set', help='data directory')
     parser.add_option('--sample-dir', dest='sample_dir', default='./samples', help='sample directory')
     parser.add_option('--cpt-dir', dest='cpt_dir', default='./checkpoints', help='checkpoint directory')
-    parser.add_option('--gpu', action='store_true', dest='gpu', default=True, help='use cuda')
+    parser.add_option('--gpu', action='store_true', dest='gpu', default=False, help='use cuda')
     parser.add_option('--test', action='store_false', default=True, help='testing mode')
     parser.add_option('--pth', default='CP10.pth', help='pth')
 

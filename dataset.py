@@ -102,6 +102,6 @@ class InpaintingDataSet(Dataset):
             transforms.RandomRotation(180),
             transforms.Resize((self.crop_size+w, self.crop_size+h)),
             transforms.RandomCrop(150),
-            transforms.ColorJitter()])
+            transforms.ColorJitter(brightness=0.2, contrast=0.2, saturation=0.2, hue=0.05)])
 
         return tranform(img)
