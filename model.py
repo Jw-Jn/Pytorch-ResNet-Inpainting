@@ -29,7 +29,7 @@ class ResBlock(nn.Module):
             nn.Conv2d(outC, outC, 3, bias=False),
             nn.BatchNorm2d(outC))
             self.conv_skip = nn.Conv2d(inC, outC, 1, bias=False)
-            self.upsample = nn.UpsamplingNearest2d(outC))
+            self.upsample = nn.UpsamplingNearest2d(outC)
 
         else:
             self.std_block = nn.Sequential(
