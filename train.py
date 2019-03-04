@@ -19,9 +19,9 @@ def trainNet(net, data_dir, sample_dir, cpt_dir, epochs=100, gpu=True, train=Tru
     optimizer = torch.optim.Adam(net.parameters(), lr=0.001)
 
     if train:
-        train_dataset = dataset.InpaintingDataSet(os.path.join(data_dir, 'train.png'), 800)
+        train_dataset = dataset.InpaintingDataSet(os.path.join(data_dir, 'train.png'), 1600)
         train_data_loader = torch.utils.data.DataLoader(train_dataset,
-                                                        batch_size=8,
+                                                        batch_size=16,
                                                         shuffle=True,
                                                         num_workers=0)
         print('train items:', len(train_dataset))
